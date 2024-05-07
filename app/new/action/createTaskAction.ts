@@ -3,7 +3,7 @@
 import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
-export const createTask = async (formData: FormData) => {
+export const createTaskAction = async (formData: FormData) => {
   const data = {
     title: formData.get("title") as string,
     description: formData.get("task-description") as string,

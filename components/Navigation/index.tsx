@@ -11,7 +11,7 @@ export function Navigation() {
         <ul className="flex gap-4">
           <li>
             <Link
-              href="/create-new-task"
+              href="/new"
               className={buttonVariants({ variant: "secondary" })}
             >
               Create Task
