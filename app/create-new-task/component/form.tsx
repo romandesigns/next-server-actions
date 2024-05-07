@@ -19,45 +19,55 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { createTask } from "../action/createTask";
 
 export function CreateTaskForm() {
   return (
     <Card className="w-[350px]">
-      <CardHeader>
-        <CardTitle>Create Task</CardTitle>
-        <CardDescription>
-          Keep track and priotize your todos to improve your productivity!
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form>
+      <form>
+        <CardHeader>
+          <CardTitle>Create Task</CardTitle>
+          <CardDescription>
+            Keep track and priotize your todos to improve your productivity!
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="Name of your project" />
+              <Label htmlFor="title">Name</Label>
+              <Input id="title" name="title" placeholder="Name of your task" />
             </div>
-            <Textarea placeholder="Type your message here." />
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="tasks">Priority</Label>
-              <Select>
-                <SelectTrigger id="tasks">
+              <Label htmlFor="task-description">Description</Label>
+              <Textarea
+                name="task-description"
+                id="task-description"
+                placeholder="Type your task description here."
+              />
+            </div>
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="priority">Priority</Label>
+              <Select name="priority">
+                <SelectTrigger id="priority">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent position="popper">
-                  <SelectItem value="next">Low</SelectItem>
-                  <SelectItem value="sveltekit">Medium</SelectItem>
-                  <SelectItem value="astro">High</SelectItem>
-                  <SelectItem value="nuxt">Urgent</SelectItem>
+                  <SelectItem value="low">Low</SelectItem>
+                  <SelectItem value="medium">Medium</SelectItem>
+                  <SelectItem value="high">High</SelectItem>
+                  <SelectItem value="urgent">Urgent</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="outline">Cancel</Button>
-        <Button>Deploy</Button>
-      </CardFooter>
+        </CardContent>
+        <CardFooter className="flex justify-between">
+          <Button variant="outline">Cancel</Button>
+          <Button type="submit" formAction={createTask}>
+            Deploy
+          </Button>
+        </CardFooter>
+      </form>
     </Card>
   );
 }
