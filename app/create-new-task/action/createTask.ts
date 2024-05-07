@@ -1,9 +1,22 @@
 "use server";
 
-export const createTask = (formData: FormData) => {
+import prisma from "@/lib/prisma";
+import { redirect } from "next/navigation";
+
+export const createTask = async (formData: FormData) => {
   const data = {
-    title: formData.get("title"),
-    description: formData.get("task-description"),
-    priority: formData.get("priority"),
+    title: formData.get("title") as string,
+    description: formData.get("task-description") as string,
+    priority: formData.get("priority") as string,
   };
+
+  const createdTask = await prisma.task.create({
+    data,
+  });
+
+  if (!createdTask) {
+    return redirect("/create-new-task");
+  }
+
+  redirect("/");
 };

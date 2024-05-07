@@ -64,7 +64,7 @@ export function CreateTaskForm() {
         <CardFooter className="flex justify-between">
           <Button variant="outline">Cancel</Button>
           <Button type="submit" formAction={createTask}>
-            Deploy
+            Create Task
           </Button>
         </CardFooter>
       </form>
