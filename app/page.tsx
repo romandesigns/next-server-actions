@@ -30,7 +30,9 @@ export default async function Home() {
           </li>
         ))}
       </ul>
-      <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+      <div className="flex items-center justify-center">
+        <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+      </div>
     </section>
   );
 }

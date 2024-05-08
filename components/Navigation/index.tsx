@@ -7,7 +7,9 @@ export function Navigation() {
   return (
     <div className="w-full p-4 border-b">
       <div className="container flex justify-between items-center">
-        <span className="font-bold">TASKer</span>
+        <Link href="/" className="font-bold">
+          TASKer
+        </Link>
         <ul className="flex gap-4">
           <li>
             <Link
